@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgres-deployment-follow
+  name: postgres-follow-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: postgres
+      app: followservice
   template:
     metadata:
       labels:
-        app: postgres
+        app: followservice
     spec:
       containers:
-        - name: postgres
+        - name: postgres-follow
           image: postgres:latest
           env:
             - name: POSTGRES_USER
@@ -31,9 +31,8 @@ metadata:
   name: postgres-follow
 spec:
   selector:
-    app: postgres
+    app: followservice
   ports:
-    - name: postgres
-      protocol: TCP
+    - protocol: TCP
       port: 5434
-      targetPort: 5434
+      targetPort: 5432

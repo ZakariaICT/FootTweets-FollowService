@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
         - name: followservice
-          image: zakaria469980/followservice:latest
+          image: zakaria469980/foottweetsfolloww:latest
           ports:
-            - containerPort: 5117
+            - containerPort: 5119
 ---
 apiVersion: v1
 kind: Service
@@ -27,15 +27,11 @@ spec:
     app: followservice  # Adjusted to match the correct label
   ports:
     - protocol: TCP
-      port: 5117
+      port: 5119
       targetPort: 80
       name: http-port
     - protocol: TCP
-      port: 7117
+      port: 7119
       targetPort: 443
       name: https-port
-    - name: postgres 
-      protocol: TCP
-      port: 5434
-      targetPort: 5434
   type: ClusterIP
