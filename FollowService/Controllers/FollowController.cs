@@ -6,12 +6,12 @@ using Microsoft.EntityFrameworkCore;
 namespace FollowService.Controllers
 {
     [ApiController]
-    [Route("api/controller")]
+    [Route("api/[Controller]")]
     public class FollowController : Controller
     {
         private readonly AppDBContext appDBContext;
 
-        public FollowController (AppDBContext appDBContext)
+        public FollowController(AppDBContext appDBContext)
         {
             this.appDBContext = appDBContext;
         }
@@ -69,6 +69,18 @@ namespace FollowService.Controllers
                 .ToList();
 
             return Ok(followers);
+        }
+
+        [HttpGet("following/{userId}")]
+        public IActionResult GetFollowing(string userId)
+        {
+            var following = appDBContext.follows
+                .Where(f => f.FollowerId == userId)
+                .Select(f => f.FollowingId)
+                .ToList();
+
+            return Ok(following);
+
         }
     }
 }
