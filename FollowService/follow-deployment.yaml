@@ -34,4 +34,4 @@ spec:
       port: 7119
       targetPort: 443
       name: https-port
-  type: LoadBalancer
+  type: ClusterIP
