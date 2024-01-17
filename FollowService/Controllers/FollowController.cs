@@ -82,5 +82,25 @@ namespace FollowService.Controllers
             return Ok(following);
 
         }
+
+
+        [HttpPost("sendusernames")]
+        public IActionResult SendUsernamesToDatabase([FromBody] Follow follow)
+        {
+            // Validate and process the request
+            if (follow == null || string.IsNullOrEmpty(follow.FollowerId) || string.IsNullOrEmpty(follow.FollowingId))
+            {
+                return BadRequest("Invalid request data");
+            }
+
+            // Perform logic to store usernames in the database
+            // You can access usernames from usernamesRequest.FollowerUsername and usernamesRequest.FollowingUsername
+
+            // Assuming you have a method to store usernames in your database
+            // StoreUsernamesInDatabase(usernamesRequest.FollowerId, usernamesRequest.FollowingId, usernamesRequest.FollowerUsername, usernamesRequest.FollowingUsername);
+
+            return Ok("Usernames sent to the database successfully");
+        }
+
     }
 }

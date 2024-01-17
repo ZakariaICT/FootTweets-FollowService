@@ -13,5 +13,9 @@ namespace FollowService.Model
         [Required]
 
         public string FollowingId { get; set; }
+
+        //public string FollowerUsername { get; set; }
+
+        //public string FollowingUsername { get; set; }
     }
 }
