@@ -15,17 +15,20 @@ namespace FollowService.Repositories
 
         public void DeleteFollowContentById(string followId)
         {
-            var followToDelete = _context.follows.FirstOrDefault(f => f.FollowerId == followId);
+            var followToDelete = _context.follows.Where(p => p.FollowerId == followId).ToList();
 
-            if (followToDelete != null)
+            foreach (var following in  followToDelete)
             {
-                _context.follows.Remove(followToDelete);
-                _context.SaveChanges();
+                _context.follows.Remove(following);
             }
-            else
-            {
-                throw new InvalidOperationException($"Follow with ID {followId} not found.");
-            }
+
+            _context.SaveChanges();
+        }
+
+
+        public bool saveChanges()
+        {
+            return (_context.SaveChanges() >= 0);
         }
     }
 }
