@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: followservice
-          image: zakaria469980/followservice_footsweetss:latest
+          image: zakaria469980/followservicee_footsweets:latest
           ports:
             - containerPort: 5119
 ---

@@ -2,5 +2,6 @@
 {
     public interface IFollowRepo
     {
+        void DeleteFollowContentById(string followId);
     }
 }
