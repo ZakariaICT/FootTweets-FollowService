@@ -10,7 +10,7 @@ namespace FollowService.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Database=FollowsDatabase;Username=postgres;Password=Xtt4d-8HNK;");
+            optionsBuilder.UseNpgsql("Host=postgres-follow; Port=5434;Database=mydatabase;Username=myuser;Password=mypassword;");
         }
     }
 }
